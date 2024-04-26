@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Encrypted Files</h2>
+<ul class="list-group">
+    {% for file in encrypted_files %}
+    <li class="list-group-item">
+        <strong>Filename:</strong> {{ file.filename }}
+        <br>
+        <strong>Encrypted Content:</strong> {{ file.encrypted_content }}
+    </li>
+    {% else %}
+    <li class="list-group-item">No encrypted files found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

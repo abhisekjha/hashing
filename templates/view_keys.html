@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    ul { list-style-type: none; padding: 0; }
+    li { background: #f9f9f9; border: 1px solid #ddd; margin-top: 5px; padding: 8px 15px; }
+    details summary { cursor: pointer; font-weight: bold; }
+    details pre { background: #eef; border-left: 3px solid #88b; margin-top: 5px; padding: 5px; white-space: pre-wrap; }
+</style>
+
+<h2>Your Cryptographic Keys</h2>
+{% if keys %}
+<ul>
+    {% for key in keys %}
+    <li>
+        Key ID: {{ key[0] }}
+        <br>
+        Key Created: {{ key[1] }} 
+        <br>
+        Created By: {{ key[3] }}
+        <details>
+            <summary>View Key</summary>
+            <pre>{{ key[2] }}</pre> <!-- Assuming key_data is the third column -->
+        </details>
+        <!-- <a href="{{ url_for('download_file', filename=key.id) }}">Download Key</a> -->
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>You have not generated any keys.</p>
+{% endif %}
+<a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+{% endblock %}

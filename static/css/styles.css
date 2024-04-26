@@ -1,0 +1,21 @@
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        margin-top: 5px;
+        padding: 8px 15px;
+    }
+    details summary {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    details pre {
+        background: #eef;
+        border-left: 3px solid #88b;
+        margin-top: 5px;
+        padding: 5px;
+        white-space: pre-wrap; /* Maintains formatting for key data */
+    }

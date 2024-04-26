@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Upload a File</h1>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+</form>
+{% if files %}
+    <h2>Uploaded Files</h2>
+    <ul>
+        {% for file in files %}
+            <li>
+                {{ file }}
+                <!-- Add Download and Delete Links -->
+                <a href="{{ url_for('download_file', filename=file) }}">Download</a>
+                <a href="{{ url_for('delete_file', filename=file) }}" onclick="return confirm('Are you sure you want to delete this file?');">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

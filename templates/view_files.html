@@ -1,0 +1,17 @@
+<!-- Example enhancement for view_files.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>File Manager</h1>
+<ul class="list-group">
+    {% for file in files %}
+    <li class="list-group-item">
+        {{ file.filename }} - Uploaded on {{ file.upload_date.strftime("%Y-%m-%d %H:%M:%S") }}
+        <a href="{{ url_for('download_file', filename=file.filename) }}">Download</a>
+        <a href="{{ url_for('delete_file', filename=file.filename) }}" onclick="return confirm('Are you sure?')">Delete</a>
+    </li>
+    {% else %}
+    <li class="list-group-item">No files uploaded yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

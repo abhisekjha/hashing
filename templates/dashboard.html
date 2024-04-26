@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Dashboard</h2>
+<ul class="list-group">
+    <li class="list-group-item"><a href="{{ url_for('upload_file') }}">Upload File</a></li>
+    <li class="list-group-item"><a href="{{ url_for('view_files') }}">View My Files</a></li>
+    <li class="list-group-item"><a href="{{ url_for('generate_key') }}">Generate Cryptographic Keys</a></li>  
+    
+
+    <li class="list-group-item"><a href="{{ url_for('view_keys') }}">View My Keys</a></li>  
+    <li class="list-group-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+    <li class="list-group-item"><a href="{{ url_for('change_password') }}">Change Password</a></li>
+    <li class="list-group-item"><a href="{{ url_for('delete_account') }}" onclick="return confirm('Are you sure you want to permanently delete your account? This action cannot be undone.');">Delete Account</a></li>
+    <li class="list-group-item"><a href="{{ url_for('logout') }}">Log Out</a></li>
+
+    <li class="list-group-item"><a href="{{ url_for('view_encrypted_files') }}">View Encrypted Files</a></li>
+    <li class="list-group-item"><a href="{{ url_for('view_hashes') }}">View Hashes</a></li>
+</ul>
+
+{% endblock %}

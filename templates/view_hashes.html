@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Hashes</h2>
+<ul class="list-group">
+    {% for hash in user_hashes %}
+    <li class="list-group-item">
+        <strong>Filename:</strong> {{ hash.filename }}
+        <br>
+        <strong>Hash Type:</strong> {{ hash.hash_type }}
+        <br>
+        <strong>Hash Value:</strong> {{ hash.hash_value }}
+    </li>
+    {% else %}
+    <li class="list-group-item">No hashes found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
